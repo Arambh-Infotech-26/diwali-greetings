@@ -150,6 +150,31 @@
         margin: 0 auto 28px;
         object-fit: contain;
       }
+      .brand-link {
+        display: block;
+        cursor: pointer;
+        transition: filter 0.2s ease, transform 0.2s ease;
+      }
+      .brand-link:hover,
+      .brand-link:focus-visible {
+        filter: drop-shadow(0 0 12px rgba(255, 178, 30, 0.45));
+        transform: translateY(-2px);
+      }
+      .website-link {
+        display: inline-block;
+        margin-top: 16px;
+        color: #ffe082;
+        font-size: 0.82rem;
+        letter-spacing: 0.4px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 224, 130, 0.55);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+      .website-link:hover,
+      .website-link:focus-visible {
+        color: #fff4c4;
+        border-color: #fff4c4;
+      }
       .eyebrow {
         font-size: 0.72rem;
         letter-spacing: 3px;
@@ -435,7 +460,9 @@
     <canvas id="fx"></canvas>
 
     <div id="start">
-      <img class="start-brand" src="assets/banner_logo_dark.png" alt="Aarambh Technologies" />
+      <a class="brand-link" href="https://aarambhtech.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Aarambh Technologies website">
+        <img class="start-brand" src="assets/banner_logo_dark.png" alt="Aarambh Technologies" />
+      </a>
       <div style="font-size: 2.5rem">🪔</div>
       <p>Shubh Deepavali</p>
       <span class="start-note">A festive message of gratitude for our clients, partners, team, and community.</span>
@@ -452,7 +479,9 @@
     </div>
 
     <div class="card" id="card">
-      <img class="brand" src="assets/banner_logo_dark.png" alt="Aarambh Technologies" />
+      <a class="brand-link" href="https://aarambhtech.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Aarambh Technologies website">
+        <img class="brand" src="assets/banner_logo_dark.png" alt="Aarambh Technologies" />
+      </a>
       <div class="eyebrow">A message from our team</div>
       <div class="diyas">
         <div class="diya">
@@ -479,6 +508,7 @@
       </div>
       <div class="foot" id="foot">
         With gratitude and warm wishes<span class="n">Aarambh Technologies</span>
+        <a class="website-link" href="https://aarambhtech.vercel.app/" target="_blank" rel="noopener noreferrer">Visit our website ↗</a>
       </div>
       <div class="hint">Tap anywhere to light up the sky 🎆</div>
     </div>
@@ -885,7 +915,7 @@
         }, 1400);
       }
       addEventListener("pointerdown", (e) => {
-        if (e.target.closest("#start,#snd,#act")) return;
+        if (e.target.closest("#start,#snd,#act,a")) return;
         launch(e.clientX, e.clientY);
       });
 
